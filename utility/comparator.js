@@ -10,10 +10,31 @@ export default class Comparator {
   }
 
   equal(a, b) {
-    return this.comp(a, b) === 0;
+    if (a === b) return true;
+    return false;
   }
 
   lessThan(a, b) {
-    return this.comp(a, b) < 0;
+    if (a < b) return true;
+    return false;
+  }
+
+  greterThan(a, b) {
+    if (a > b) return true;
+    return false;
+  }
+
+  lessThanEqual(a, b) {
+    if (a < b || a === b) return true;
+    return false;
+  }
+
+  greaterThanEqual(a, b) {
+    if (a > b || a === b) return true;
+  }
+
+  reverse() {
+    const compOrig = this.comp;
+    this.comp = (a, b) => compOrig(b, a);
   }
 }
