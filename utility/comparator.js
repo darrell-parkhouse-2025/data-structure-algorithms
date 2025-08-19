@@ -12,4 +12,8 @@ export default class Comparator {
   equal(a, b) {
     return this.comp(a, b) === 0;
   }
+
+  lessThan(a, b) {
+    return this.comp(a, b) < 0;
+  }
 }
