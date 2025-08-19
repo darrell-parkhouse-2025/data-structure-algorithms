@@ -23,4 +23,35 @@ export default class LinkedList {
   append(value) {}
 
   insert(value, rawIdx) {}
+
+  delete(value) {}
+
+  find({ value = undefined, callback = undefined }) {}
+
+  deleteTail() {}
+
+  deleteHead() {}
+
+  fromArray(values) {
+    values.forEach((value) => this.append(value));
+    return this;
+  }
+
+  toArray() {
+    const nodes = [];
+    const curr = this.head;
+
+    while (curr) {
+      nodes.push(curr);
+      curr = curr.next;
+    }
+
+    return nodes;
+  }
+
+  toString(callback) {
+    return this.toArray()
+      .map((node) => node.toString(callback))
+      .toString();
+  }
 }
