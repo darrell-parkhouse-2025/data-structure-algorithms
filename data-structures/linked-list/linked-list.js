@@ -54,4 +54,22 @@ export default class LinkedList {
       .map((node) => node.toString(callback))
       .toString();
   }
+
+  reverse() {
+    let curr = this.head;
+    let prev = null;
+    let next = null;
+
+    while (curr) {
+      newNode = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = next;
+    }
+
+    this.tail = this.head;
+    this.head = prev;
+
+    return this;
+  }
 }
