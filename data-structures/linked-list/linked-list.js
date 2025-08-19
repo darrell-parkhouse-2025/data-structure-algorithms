@@ -30,7 +30,20 @@ export default class LinkedList {
 
   deleteTail() {}
 
-  deleteHead() {}
+  deleteHead() {
+    if (!this.head) {
+      return null; // list is empty
+    }
+
+    const deleted = this.head;
+
+    if (this.head.next) {
+      this.head = this.head.next;
+    } else {
+      this.head = null;
+      this.tail = null;
+    }
+  }
 
   fromArray(values) {
     values.forEach((value) => this.append(value));
