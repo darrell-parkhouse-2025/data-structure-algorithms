@@ -28,7 +28,11 @@ export default class LinkedList {
 
   find({ value = undefined, callback = undefined }) {}
 
-  deleteTail() {}
+  deleteTail() {
+    const dt = this.tail;
+    if (this.head === this.tail) {
+    }
+  }
 
   deleteHead() {
     if (!this.head) {
