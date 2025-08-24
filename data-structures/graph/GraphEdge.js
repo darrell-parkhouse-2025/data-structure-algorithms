@@ -20,4 +20,8 @@ export default class Edge {
     this.start = this.end;
     this.end = tmp;
   }
+
+  toString() {
+    this.getKey();
+  }
 }
