@@ -12,4 +12,12 @@ class DynamicArray {
 
     return this.data[idx];
   }
+
+  set(idx, value) {
+    if (idx < 0 || idx >= this.size) {
+      throw new Error("index is out of bounds");
+    }
+
+    return (this.data[this.size] = value);
+  }
 }
