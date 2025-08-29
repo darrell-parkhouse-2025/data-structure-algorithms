@@ -78,3 +78,40 @@ const solve = (grid) => {
   backtrack();
   return solved;
 };
+
+const count_solutions = (grid, limit = 2) => {
+  grid = clone_grid(grid);
+
+  let count = 0;
+
+  const backtrack = () => {
+    if (count >= limit) return;
+
+    const cell = findEnptyMRV(grid);
+
+    const [r, c, cands] = cell;
+
+    if (cands.length === 0) return;
+
+    for (let v of cands) {
+      grid[r][c] = v;
+      backtrack();
+      grid[r][c] = 0;
+
+      if (count >= limit) return;
+    }
+  };
+
+  backtrack();
+  return count;
+};
+
+count_solutions();
+
+export default {
+  count_solutions,
+  solve,
+  findEnptyMRV,
+  valid,
+  clone_grid,
+};
