@@ -47,3 +47,34 @@ const findEnptyMRV = (grid) => {
 
   return best;
 };
+
+const solve = (grid) => {
+  grid = clone_grid(grid);
+
+  let solved = null;
+
+  const backtrack = () => {
+    if (solved) return true;
+    const cell = findEnptyMRV(grid);
+
+    if (cell === null) {
+      solved = clone_grid(grid);
+      return true;
+    }
+
+    const [r, c, cands] = cell;
+
+    if (cands.length === 0) return false;
+
+    for (let v of cands) {
+      grid[r][c] = v;
+
+      if (backtrack()) return true;
+    }
+
+    return false;
+  };
+
+  backtrack();
+  return solved;
+};
