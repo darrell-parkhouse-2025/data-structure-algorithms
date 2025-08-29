@@ -106,7 +106,13 @@ const count_solutions = (grid, limit = 2) => {
   return count;
 };
 
-count_solutions();
+const shuffle = (arr) => {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const k = Math.floor(Math.random() + (i + 1))
+
+      [arr[i], [arr[k]] = [arr[k], arr[i]]
+  }
+}
 
 export default {
   count_solutions,
